@@ -9,12 +9,15 @@ int main (){
     int populacao1, populacao2;
     float area1, area2;
     float pib1, pib2;
+    float densidade1, densidade2;
+    float PibPerCapita1, PibPerCapita2;
     int pontoTurismo1, pontoTurismo2;
 
     
-    printf("\nOlá! Vamos criar duas cartas para o jogo Super Trunfo. \n Vamos inserir os dados da primeira carta.\n");
-    // Código para coleta de dados do usuário para a primeira carta
+    printf("\n**Olá! Vamos criar duas cartas para o jogo Super Trunfo**");
+    printf("Vamos inserir os dados da primeira carta.**\n");
 
+    // Código para coleta de dados do usuário para a primeira carta
     printf("Digite o nome do estado - use uma letra de'A' a 'H'. Essa letra vai representar um dos 8 estados: ");
     scanf("%s", estado1);
     printf("Defina um código para esta carta. Use a letra do estado que voce escolheu seguida de um número de 01 a 04 (ex: A01, B03): ");
@@ -29,8 +32,8 @@ int main (){
     scanf("%f", &pib1);
     printf("Digite o número de pontos turísticos da cidade: ");
     scanf("%d", &pontoTurismo1);
-    //Fim do código para coleta de dados do usuário para a primeira carta
-
+    
+    //Códgigo para coleta de dados do usuário para a segunda carta
     printf("\nAgora vamos inserir os dados da segunda carta.\n");
     
     printf("Digite o nome do estado - use uma letra de'A' a 'H'. Essa letra vai representar um dos 8 estados: ");
@@ -47,8 +50,20 @@ int main (){
     scanf("%f", &pib2);
     printf("Digite o número de pontos turísticos da cidade: ");
     scanf("%d", &pontoTurismo2);
-    //Fim do código para coleta de dados do usuário para a segunda carta
+    
 
+    //Calculo para densidade populacional das carta 1e2
+    densidade1 = (float) populacao1 / area1;
+    densidade2 = (float) populacao2 / area2;
+
+    //Calculo para PIB per capita das cartas 1 e 2
+    PibPerCapita1 = (float) pib1 / populacao1;
+    PibPerCapita2 = (float) pib2 / populacao2;
+    PibPerCapita1 = PibPerCapita1 * 100000000; // Convertendo de Bilhões para reais
+    PibPerCapita2 = PibPerCapita2 * 100000000; // Convertendo de Bilhões para reais
+
+
+    
     //Mostrando os dados da primeira carta
     printf("\nDados das cartas criadas:\n");
     printf("Carta 1: \n");
@@ -57,8 +72,10 @@ int main (){
     printf("Cidade: %s\n", cidade1);
     printf("População: %d\n", populacao1);
     printf("Área: %.2f Km²\n", area1);
-    printf("PIB: %.2f Bilhões de reais\n", pib1);
-    printf("Número de pontos turísticos: %d\n\n", pontoTurismo1);
+    printf("PIB: %.2f bilhões de reais\n", pib1);
+    printf("Número de pontos turísticos: %d\n", pontoTurismo1);
+    printf("Densidade populacional: %.2f hab/km²\n", densidade1);
+    printf("PIB per capita: %.2f reais\n\n", PibPerCapita1);
 
     //Mostrando os dados da segunda carta
     printf("Carta 2: \n");
@@ -67,7 +84,8 @@ int main (){
     printf("Cidade: %s\n", cidade2);
     printf("População: %d\n", populacao2);
     printf("Área: %.2f Km²\n", area2);
-    printf("PIB: %.2f Bilhões de reais\n", pib2);
+    printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de pontos turísticos: %d\n", pontoTurismo2);
-
+    printf("Densidade populacional: %.2f hab/km²\n", densidade2);
+    printf("PIB per capita: %.2f reais\n", PibPerCapita2);   
 }
